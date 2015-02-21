@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "Employee.h"
 
 @interface DetailViewController ()
 
@@ -28,7 +29,8 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.nameLabel.text = ((Employee*)self.detailItem).name;
+        self.dateLabel.text = [((Employee*)self.detailItem).addDate description];
     }
 }
 

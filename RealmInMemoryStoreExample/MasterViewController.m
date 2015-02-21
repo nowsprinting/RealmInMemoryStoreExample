@@ -8,10 +8,11 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "EmployeeManager.h"
 
 @interface MasterViewController ()
 
-@property NSMutableArray *objects;
+@property NSArray *objects;     //直接insertObject等しないよう、MutableでないArrayに変更
 @end
 
 @implementation MasterViewController
@@ -32,6 +33,11 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
+    //Realmから抽出
+    if (!self.objects) {
+        self.objects = [EmployeeManager fetchAll];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,12 +46,14 @@
 }
 
 - (void)insertNewObject:(id)sender {
-    if (!self.objects) {
-        self.objects = [[NSMutableArray alloc] init];
-    }
-    [self.objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    //Realmに追加し、TableViewを再読み込み
+    Employee *newEmployee = [EmployeeManager addEmployeeWithName:@"John Smith"];
+    NSLog(@"Add new employee, name = %@", newEmployee.name);
+
+    self.objects = [EmployeeManager fetchAll];
+    NSLog(@"Employee count = %tu", self.objects.count);
+
+    [self.tableView reloadData];
 }
 
 #pragma mark - Segues
@@ -74,8 +82,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    Employee *object = self.objects[indexPath.row];
+    cell.textLabel.text = [object.addDate description];
     return cell;
 }
 
@@ -86,7 +94,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.objects removeObjectAtIndex:indexPath.row];
+//        [self.objects removeObjectAtIndex:indexPath.row];
+        //TODO: Realmから削除する
+
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
