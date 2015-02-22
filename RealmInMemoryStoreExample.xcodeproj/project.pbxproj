@@ -10,6 +10,7 @@
 		1D26EEEA1A990FC70025D11D /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D26EEE91A990FC70025D11D /* Employee.m */; };
 		1D26EEF61A99D6A10025D11D /* EmployeeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D26EEF51A99D6A10025D11D /* EmployeeManager.m */; };
 		1D26EEF81A99E5430025D11D /* EmployeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D26EEF71A99E5430025D11D /* EmployeeTests.m */; };
+		1D26EEFA1A99F3E00025D11D /* InMemoryStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D26EEF91A99F3E00025D11D /* InMemoryStoreTests.m */; };
 		1D4274401A98A3FC00319CAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D42743F1A98A3FC00319CAB /* main.m */; };
 		1D4274431A98A3FC00319CAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4274421A98A3FC00319CAB /* AppDelegate.m */; };
 		1D4274461A98A3FC00319CAB /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D4274451A98A3FC00319CAB /* MasterViewController.m */; };
@@ -40,6 +41,7 @@
 		1D26EEF41A99D6A10025D11D /* EmployeeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeManager.h; sourceTree = "<group>"; };
 		1D26EEF51A99D6A10025D11D /* EmployeeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeManager.m; sourceTree = "<group>"; };
 		1D26EEF71A99E5430025D11D /* EmployeeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeTests.m; sourceTree = "<group>"; };
+		1D26EEF91A99F3E00025D11D /* InMemoryStoreTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InMemoryStoreTests.m; sourceTree = "<group>"; };
 		1D42743A1A98A3FC00319CAB /* RealmInMemoryStoreExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmInMemoryStoreExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D42743E1A98A3FC00319CAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D42743F1A98A3FC00319CAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				1D26EEF71A99E5430025D11D /* EmployeeTests.m */,
+				1D26EEF91A99F3E00025D11D /* InMemoryStoreTests.m */,
 				1D42745A1A98A3FC00319CAB /* Supporting Files */,
 			);
 			path = RealmInMemoryStoreExampleTests;
@@ -367,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D26EEF81A99E5430025D11D /* EmployeeTests.m in Sources */,
+				1D26EEFA1A99F3E00025D11D /* InMemoryStoreTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
