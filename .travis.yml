@@ -1,5 +1,7 @@
 language: objective-c
-
 script:
   - make test
 
+notifications:
+  slack:
+    secure: KbyhYNRIbp7sLPPR08hrj73zgWYhPM+WqvmP+TlqTvmvPq87Bc4gesjbMgSEXOtoG6BLrGW0ED7XJEb3X7NF/Dh7bEzD6UyMObK9DlHKMbRHM9Bcvh+83RxiNwQBnQqNyLwoJ+jv4oukTr6E+cDwzyZIHOB4LxWtgmGPdI2N70k=
