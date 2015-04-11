@@ -1,6 +1,14 @@
 language: objective-c
+cache: cocoapods
+
+before_install:
+  - sudo easy_install cpp-coveralls
+
 script:
-  - make test
+  - make test REPORTER=pretty DST_OS=8.1
+
+after_success:
+  - make send-to-coveralls
 
 notifications:
   slack:
